@@ -8,6 +8,7 @@ import Button from '@/components/UI/Button'
 import * as XLSX from 'xlsx'
 import { useRouter } from 'next/navigation'
 import { useProjectData } from '../contexts/ProjectDataContext'
+import Link from 'next/link'
 
 export default function Home() {
 	const { projectName, setProjectName, excelData, setExcelData } = useProjectData()
@@ -18,7 +19,6 @@ export default function Home() {
 
 	const router = useRouter()
 
-	// Funkcja do walidacji
 	const validateInputs = () => {
 		let isValid = true
 		if (!projectName.trim()) {
@@ -104,15 +104,23 @@ export default function Home() {
 					<footer className='flex justify-center items-center absolute bottom-0 w-full bg-transparent'>
 						<div className='w-1/2 py-4 text-center text-white'>
 							<div className='w-full h-[1px] bg-gray-400 mb-2'></div>
-							<p className='text-sm'>Kamil Porada &copy; {new Date().getFullYear()}</p>
-							<a
-								href='https://github.com/KamilPorada'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='inline-flex items-center mt-2'>
-								<FontAwesomeIcon icon={faGithub} className='text-white text-xl mr-2' />
-								<span className='text-sm'>GitHub</span>
-							</a>
+							<p className='text-xs md:text-sm mb-1'>© {new Date().getFullYear()} Wszelkie prawa zastrzeżone</p>
+							<div className='flex justify-center gap-2'>
+								<div className='flex flex-col'>
+									<Link
+										href='https://github.com/KamilPorada'
+										target='_blank'
+										className='flex items-center gap-1 text-xs md:text-sm cursor-pointer'>
+										<FontAwesomeIcon icon={faGithub} /> Kamil Porada
+									</Link>
+									<Link
+										href='https://github.com/LMarcinEl'
+										target='_blank'
+										className='flex items-center gap-1 text-xs md:text-sm cursor-pointer'>
+										<FontAwesomeIcon icon={faGithub} /> Marcin Lach
+									</Link>
+								</div>
+							</div>
 						</div>
 					</footer>
 				</div>

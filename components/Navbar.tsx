@@ -27,7 +27,7 @@ export default function Navbar() {
 
 	return (
 		<div
-			className={`fixed flex ring-2 ring-mainColor ${
+			className={`fixed flex ring-2 ring-mainColor z-10 ${
 				isCollapsed ? 'w-16' : 'w-64'
 			} h-screen bg-mainColor flex-col transition-all duration-300`}>
 			<div className={`flex items-center p-4 text-white ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
@@ -66,10 +66,10 @@ export default function Navbar() {
 					<>
 						<p className='text-sm'>© {new Date().getFullYear()} Wszelkie prawa zastrzeżone</p>
 						<div className='flex justify-center gap-2 mt-2'>
-							<Link href='https://github.com/tworca1' target='_blank' className='flex items-center gap-1 text-sm '>
+							<Link href='https://github.com/KamilPorada' target='_blank' className='flex items-center gap-1 text-sm '>
 								<FontAwesomeIcon icon={faGithub} /> Kamil Porada
 							</Link>
-							<Link href='https://github.com/tworca2' target='_blank' className='flex items-center gap-1 text-sm '>
+							<Link href='https://github.com/LMarcinEl' target='_blank' className='flex items-center gap-1 text-sm '>
 								<FontAwesomeIcon icon={faGithub} /> Marcin Lach
 							</Link>
 						</div>
@@ -81,7 +81,7 @@ export default function Navbar() {
 						<div
 							className={`flex flex-col items-center justify-center gap-2 p-4 text-left text-white transition-colors duration-200 `}>
 							<Link
-								href='https://github.com/tworca1'
+								href='https://github.com/KamilPorada'
 								target='_blank'
 								className={`text-xl lg:text-2xl w-16 h-12 flex justify-center items-center  ${
 									isCollapsed ? 'hover:bg-secondaryColor hover:ring-2 hover:ring-gray-800' : ''
@@ -89,7 +89,7 @@ export default function Navbar() {
 								<FontAwesomeIcon icon={faGithub} />
 							</Link>
 							<Link
-								href='https://github.com/tworca1'
+								href='https://github.com/LMarcinEl'
 								target='_blank'
 								className={`text-xl lg:text-2xl w-16 h-12 flex justify-center items-center  ${
 									isCollapsed ? 'hover:bg-secondaryColor hover:ring-2 hover:ring-gray-800' : ''
