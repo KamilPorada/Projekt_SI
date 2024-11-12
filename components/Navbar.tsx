@@ -20,8 +20,8 @@ export default function Navbar() {
 	// Lista przycisków nawigacyjnych
 	const navItems = [
 		{ label: 'Przegląd danych', icon: faTable, path: '/table-of-data' },
-		{ label: 'Statystyki agregujące', icon: faChartBar, path: '/aggregated-stats' },
-		{ label: 'Twarze Chernoffa', icon: faSmile, path: '/chernoff-faces' },
+		{ label: 'Statystyki agregujące', icon: faChartBar, path: '/aggregate-statistics' },
+		{ label: 'Twarze Chernoffa', icon: faSmile, path: '/' },
 		{ label: 'Wczytaj nowe dane', icon: faUpload, path: '/' },
 	]
 
