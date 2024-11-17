@@ -12,7 +12,6 @@ export default function TableOfData() {
 
 	return (
 		<>
-			<Navbar />
 			<div className='p-8 text-black bg-backgroundColor wrapper extra-padding'>
 				<SectionTitle title='Przegląd danych' />
 				<h1 className='text-lg md:text-xl lg:text-2xl font-bold mb-4 text-center'>{projectName}</h1>
@@ -33,7 +32,7 @@ export default function TableOfData() {
 								{excelData.map((row: ExcelRow, rowIndex: number) => (
 									<tr key={rowIndex}>
 										{Object.values(row).map((value, cellIndex) => (
-											<td key={cellIndex} className='p-2 ring-1 ring-secondaryColor text-center'>
+											<td key={cellIndex} className='p-2 ring-1 ring-secondaryColor text-center bg-white'>
 												{value}
 											</td>
 										))}

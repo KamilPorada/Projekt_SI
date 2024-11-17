@@ -10,7 +10,7 @@ import { useState } from 'react'
 export default function Navbar() {
 	const router = useRouter()
 	const pathname = usePathname()
-	const [isCollapsed, setIsCollapsed] = useState(false)
+	const [isCollapsed, setIsCollapsed] = useState(true)
 
 	// Funkcja do obsługi nawigacji
 	const handleNavigate = (path: string) => {
@@ -21,7 +21,7 @@ export default function Navbar() {
 	const navItems = [
 		{ label: 'Przegląd danych', icon: faTable, path: '/table-of-data' },
 		{ label: 'Statystyki agregujące', icon: faChartBar, path: '/aggregate-statistics' },
-		{ label: 'Twarze Chernoffa', icon: faSmile, path: '/' },
+		{ label: 'Twarze Chernoffa', icon: faSmile, path: '/chernoff-faces' },
 		{ label: 'Wczytaj nowe dane', icon: faUpload, path: '/' },
 	]
 

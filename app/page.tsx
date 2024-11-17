@@ -90,7 +90,6 @@ export default function Home() {
 			}}>
 			<div className='absolute inset-0 bg-black opacity-50'></div>
 
-			{/* Pierwszy ekran */}
 			<div
 				className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out ${
 					isTransitioned ? 'move-right' : 'start-center'
