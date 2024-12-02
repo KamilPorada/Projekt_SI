@@ -34,10 +34,10 @@ export default function ChernoffFaces() {
 
 			if (mean < quantiles[0]) {
 				assignments.push(1) // Q1
-			} else if (mean < quantiles[1]) {
-				assignments.push(2) // Q2
+			} else if (mean > quantiles[2]) {
+				assignments.push(3) // Q2
 			} else {
-				assignments.push(3) // Q3
+				assignments.push(2) // Q3
 			}
 		})
 
@@ -46,7 +46,7 @@ export default function ChernoffFaces() {
 
 	const sketch = (p: any) => {
 		p.setup = () => {
-			p.createCanvas(600, 950)
+			p.createCanvas(600, 1050)
 		}
 
 		p.draw = () => {
@@ -55,11 +55,10 @@ export default function ChernoffFaces() {
 			//-------TWARZ CHERNOFFA------
 
 			//Nazwa projektu
-			p.fill(0) 
-			p.textSize(22) 
+			p.fill(0)
+			p.textSize(22)
 			p.textAlign(p.CENTER, p.TOP)
 			p.text(projectName, p.width / 2, 20)
-			
 
 			//Atrybut 1 - Kolor skóry
 			if (quantileAssignments[0] == 1) {
@@ -109,9 +108,9 @@ export default function ChernoffFaces() {
 			}
 
 			//Atrybut 4 - Nos
-			p.fill(255, 192, 203) 
-			p.stroke(255, 105, 180) 
-			p.strokeWeight(1) 
+			p.fill(255, 192, 203)
+			p.stroke(255, 105, 180)
+			p.strokeWeight(1)
 
 			if (quantileAssignments[3] == 1) {
 				// Nos wersja 1
@@ -128,75 +127,75 @@ export default function ChernoffFaces() {
 			if (quantileAssignments[4] == 1) {
 				// Oczy wersja 1
 				// lewe oko
-				p.noFill() 
-				p.stroke(100, 150, 255) 
-				p.strokeWeight(4) 
-				p.ellipse(250, 170, 40, 40) 
-
-				p.fill(0) // lewa źrenica
-				p.noStroke()
-				p.ellipse(250, 170, 15, 15) 
-
-				// prawe oko
-				p.noFill() 
-				p.stroke(100, 150, 255) 
-				p.strokeWeight(4) 
-				p.ellipse(350, 170, 40, 40) 
-
-				p.fill(0) // prawa źrenica
-				p.noStroke()
-				p.ellipse(350, 170, 15, 15) 
-			} else if (quantileAssignments[4] == 2) {
-				// Oczy wersja 2
-				// lewe oko
-				p.noFill() 
-				p.stroke(100, 150, 255) 
-				p.strokeWeight(4) 
-				p.ellipse(250, 170, 40, 40) 
-
-				p.fill(0) // lewa źrenica
-				p.noStroke()
-				p.ellipse(250, 170, 20, 20) 
-
-				// prawe oko
-				p.noFill() 
-				p.stroke(100, 150, 255) 
-				p.strokeWeight(4) 
-				p.ellipse(350, 170, 40, 40) 
-
-				p.fill(0) // prawa źrenica
-				p.noStroke()
-				p.ellipse(350, 170, 20, 20) 
-			} else {
-				// Oczy wersja 3
-				// lewe oko
-				p.noFill() 
+				p.noFill()
 				p.stroke(100, 150, 255)
 				p.strokeWeight(4)
-				p.ellipse(250, 170, 40, 40) 
+				p.ellipse(250, 170, 40, 40)
 
 				p.fill(0) // lewa źrenica
 				p.noStroke()
-				p.ellipse(250, 170, 25, 25) 
+				p.ellipse(250, 170, 15, 15)
 
 				// prawe oko
 				p.noFill()
 				p.stroke(100, 150, 255)
-				p.strokeWeight(4) 
-				p.ellipse(350, 170, 40, 40) 
+				p.strokeWeight(4)
+				p.ellipse(350, 170, 40, 40)
 
 				p.fill(0) // prawa źrenica
 				p.noStroke()
-				p.ellipse(350, 170, 25, 25) 
+				p.ellipse(350, 170, 15, 15)
+			} else if (quantileAssignments[4] == 2) {
+				// Oczy wersja 2
+				// lewe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(4)
+				p.ellipse(250, 170, 40, 40)
+
+				p.fill(0) // lewa źrenica
+				p.noStroke()
+				p.ellipse(250, 170, 20, 20)
+
+				// prawe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(4)
+				p.ellipse(350, 170, 40, 40)
+
+				p.fill(0) // prawa źrenica
+				p.noStroke()
+				p.ellipse(350, 170, 20, 20)
+			} else {
+				// Oczy wersja 3
+				// lewe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(4)
+				p.ellipse(250, 170, 40, 40)
+
+				p.fill(0) // lewa źrenica
+				p.noStroke()
+				p.ellipse(250, 170, 30, 30)
+
+				// prawe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(4)
+				p.ellipse(350, 170, 40, 40)
+
+				p.fill(0) // prawa źrenica
+				p.noStroke()
+				p.ellipse(350, 170, 30, 30)
 			}
-			
+
 			//-----LEGENDA-------
 
 			//Legenda - tytuł
 
-			p.fill(0) 
+			p.fill(0)
 			p.textSize(22)
-			p.textAlign(p.CENTER, p.TOP) 
+			p.textAlign(p.CENTER, p.TOP)
 			p.text('Legenda', p.width / 2, 460)
 
 			p.translate(10, 0)
@@ -205,23 +204,29 @@ export default function ChernoffFaces() {
 
 			// Nazwy wierszy
 
-			p.fill(0) 
-			p.textStyle(p.NORMAL)
-			p.textSize(14) 
-			p.textAlign(p.LEFT, p.TOP) 
-			p.text('Wysoki', 10, 700)
-
-			p.fill(0) 
-			p.textStyle(p.NORMAL)
-			p.textSize(14) 
-			p.textAlign(p.LEFT, p.TOP) 
-			p.text(' Średni', 10, 795)
-
-			p.fill(0) 
+			p.fill(0)
 			p.textStyle(p.NORMAL)
 			p.textSize(14)
-			p.textAlign(p.LEFT, p.TOP) 
-			p.text('   Niski', 10, 885)
+			p.textAlign(p.LEFT, p.TOP)
+			p.text('Kwantyl Q3', 5, 700)
+
+			p.fill(0)
+			p.textStyle(p.NORMAL)
+			p.textSize(14)
+			p.textAlign(p.LEFT, p.TOP)
+			p.text('Kwantyl Q2', 5, 795)
+
+			p.fill(0)
+			p.textStyle(p.NORMAL)
+			p.textSize(14)
+			p.textAlign(p.LEFT, p.TOP)
+			p.text('Kwantyl Q1', 5, 885)
+
+			p.fill(0)
+			p.textStyle(p.NORMAL)
+			p.textSize(14)
+			p.textAlign(p.LEFT, p.TOP)
+			p.text(' Statystyka', 5, 982)
 
 			//Nazwy kolumn
 
@@ -244,7 +249,7 @@ export default function ChernoffFaces() {
 				p.pop()
 
 				p.push()
-				p.translate(330, 470) 
+				p.translate(330, 470)
 				p.rotate(p.radians(90))
 
 				if (columnNames[3]) p.text(`                         ${columnNames[3]}`, 0, 0)
@@ -293,8 +298,8 @@ export default function ChernoffFaces() {
 
 			p.push()
 
-			p.fill(255, 255, 255) 
-			p.stroke(0, 0, 0) 
+			p.fill(255, 255, 255)
+			p.stroke(0, 0, 0)
 			p.strokeWeight(1)
 
 			//Owal twarzy Q3
@@ -311,19 +316,19 @@ export default function ChernoffFaces() {
 			p.push()
 
 			p.fill(255, 192, 203)
-			p.stroke(255, 105, 180) 
-			p.strokeWeight(1) 
+			p.stroke(255, 105, 180)
+			p.strokeWeight(1)
 
 			p.stroke(255, 99, 71)
 			p.strokeWeight(4)
 			p.noFill()
 
 			// Usta - Q3
-			p.arc(319, 720, 50, 50, Math.PI, Math.PI * 2) 
+			p.arc(319, 720, 50, 50, Math.PI, Math.PI * 2)
 			// Usta - Q2
-			p.line(294, 803, 344, 803) 
+			p.line(294, 803, 344, 803)
 			// Usta - Q1
-			p.arc(319, 888, 50, 50, 0, Math.PI) 
+			p.arc(319, 888, 50, 50, 0, Math.PI)
 
 			p.pop()
 
@@ -331,8 +336,8 @@ export default function ChernoffFaces() {
 
 			p.push()
 
-			p.fill(255, 192, 203) 
-			p.stroke(255, 105, 180) 
+			p.fill(255, 192, 203)
+			p.stroke(255, 105, 180)
 			p.strokeWeight(1)
 
 			//Nos - Q3
@@ -351,61 +356,61 @@ export default function ChernoffFaces() {
 			//Oczy - Q3
 			// lewe oko
 			p.noFill()
-			p.stroke(100, 150, 255) 
-			p.strokeWeight(3) 
-			p.ellipse(495, 708, 30, 30) 
+			p.stroke(100, 150, 255)
+			p.strokeWeight(3)
+			p.ellipse(495, 708, 30, 30)
 
 			p.fill(0) // lewa źrenica
 			p.noStroke()
-			p.ellipse(495, 708, 15, 15) 
+			p.ellipse(495, 708, 20, 20)
 
 			// prawe oko
-			p.noFill() 
-			p.stroke(100, 150, 255) 
-			p.strokeWeight(3) 
+			p.noFill()
+			p.stroke(100, 150, 255)
+			p.strokeWeight(3)
 			p.ellipse(545, 708, 30, 30)
 
 			p.fill(0) // prawa źrenica
 			p.noStroke()
-			p.ellipse(545, 708, 15, 15) 
+			p.ellipse(545, 708, 20, 20)
 
 			// Oczy - Q2
 			// lewe oko
-			p.noFill() 
-			p.stroke(100, 150, 255) 
-			p.strokeWeight(3) 
-			p.ellipse(495, 802, 30, 30) 
+			p.noFill()
+			p.stroke(100, 150, 255)
+			p.strokeWeight(3)
+			p.ellipse(495, 802, 30, 30)
 
 			p.fill(0) // lewa źrenica
 			p.noStroke()
-			p.ellipse(495, 802, 10, 10) 
+			p.ellipse(495, 802, 15, 15)
 
 			// prawe oko
-			p.noFill() 
-			p.stroke(100, 150, 255) 
-			p.strokeWeight(3) 
+			p.noFill()
+			p.stroke(100, 150, 255)
+			p.strokeWeight(3)
 			p.ellipse(545, 802, 30, 30)
 
 			p.fill(0) // prawa źrenica
 			p.noStroke()
-			p.ellipse(545, 802, 10, 10) 
+			p.ellipse(545, 802, 15, 15)
 
 			// Oczy - Q1
 			// lewe oko
-			p.noFill() 
-			p.stroke(100, 150, 255) 
-			p.strokeWeight(3) 
-			p.ellipse(495, 896, 30, 30) 
+			p.noFill()
+			p.stroke(100, 150, 255)
+			p.strokeWeight(3)
+			p.ellipse(495, 896, 30, 30)
 
 			p.fill(0) // lewa źrenica
 			p.noStroke()
-			p.ellipse(495, 896, 5, 5) 
+			p.ellipse(495, 896, 5, 5)
 
 			// prawe oko
-			p.noFill() 
-			p.stroke(100, 150, 255) 
-			p.strokeWeight(3) 
-			p.ellipse(545, 896, 30, 30) 
+			p.noFill()
+			p.stroke(100, 150, 255)
+			p.strokeWeight(3)
+			p.ellipse(545, 896, 30, 30)
 
 			p.fill(0) // prawa źrenica
 			p.noStroke()
@@ -415,7 +420,153 @@ export default function ChernoffFaces() {
 
 			p.pop()
 
-			
+			// Statystyka - legenda
+
+			// Atrybut 1 - Kolor skóry
+			p.push()
+			if (quantileAssignments[0] == 1) {
+				//Kolor skóry 1
+				p.fill(255, 224, 189)
+				p.stroke(255, 224, 189)
+				p.rect(95, 967, 50, 50)
+			} else if (quantileAssignments[0] == 2) {
+				//Kolor skóry 2
+				p.fill(204, 148, 115)
+				p.stroke(204, 148, 115)
+				p.rect(95, 967, 50, 50)
+			} else {
+				//Kolor skóry 3
+				p.fill(139, 101, 80)
+				p.stroke(139, 101, 80)
+				p.rect(95, 967, 50, 50)
+			}
+			p.pop()
+
+			//Atrybut 2 - Owal twarzy
+			p.push()
+			p.fill(255, 255, 255)
+			p.stroke(0, 0, 0)
+			p.strokeWeight(1)
+
+			if (quantileAssignments[1] == 1) {
+				// Owal twarzy 1
+				p.ellipse(220, 990, 40, 50)
+			} else if (quantileAssignments[1] == 2) {
+				// Owal twarzy 2
+				p.ellipse(220, 990, 50, 50)
+			} else {
+				// Owal twarzy 3
+				p.ellipse(220, 990, 60, 50)
+			}
+			p.pop()
+
+			//Atrybut 3 - Usta
+			p.push()
+			p.fill(255, 192, 203)
+			p.stroke(255, 105, 180)
+			p.strokeWeight(1)
+
+			p.stroke(255, 99, 71)
+			p.strokeWeight(4)
+			p.noFill()
+
+			if (quantileAssignments[2] == 1) {
+				// Wesołe usta (półkole)
+				p.arc(319, 975, 50, 50, 0, Math.PI)
+			} else if (quantileAssignments[2] == 2) {
+				// Normalne usta (prosta linia)
+				p.line(294, 985, 344, 985)
+			} else {
+				// Smutne usta (odwrócone półkole)
+				p.arc(319, 1000, 50, 50, Math.PI, Math.PI * 2)
+			}
+			p.pop()
+
+			//Atrybut 4 - Nos
+			p.push()
+			p.fill(255, 192, 203)
+			p.stroke(255, 105, 180)
+			p.strokeWeight(1)
+
+			if (quantileAssignments[3] == 1) {
+				// Nos wersja 1
+				p.triangle(420, 955, 405, 1030, 435, 1030)
+			} else if (quantileAssignments[3] == 2) {
+				// Nos wersja 2
+				p.triangle(420, 965, 405, 1020, 435, 1020)
+			} else {
+				// Nos wersja 3
+				p.triangle(420, 975, 405, 1010, 435, 1010)
+			}
+			p.pop()
+
+			//Atrybut 5 - Oczy
+			p.push()
+			if (quantileAssignments[4] == 1) {
+				// Oczy - Q1
+				// lewe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(3)
+				p.ellipse(495, 990, 30, 30)
+
+				p.fill(0) // lewa źrenica
+				p.noStroke()
+				p.ellipse(495, 990, 5, 5)
+
+				// prawe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(3)
+				p.ellipse(545, 990, 30, 30)
+
+				p.fill(0) // prawa źrenica
+				p.noStroke()
+				p.ellipse(545, 990, 5, 5)
+			} else if (quantileAssignments[4] == 2) {
+				// Oczy - Q2
+				// lewe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(3)
+				p.ellipse(495, 990, 30, 30)
+
+				p.fill(0) // lewa źrenica
+				p.noStroke()
+				p.ellipse(495, 990, 15, 15)
+
+				// prawe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(3)
+				p.ellipse(545, 990, 30, 30)
+
+				p.fill(0) // prawa źrenica
+				p.noStroke()
+				p.ellipse(545, 990, 15, 15)
+			} else {
+				//Oczy - Q3
+				// lewe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(3)
+				p.ellipse(495, 990, 30, 30)
+
+				p.fill(0) // lewa źrenica
+				p.noStroke()
+				p.ellipse(495, 990, 20, 20)
+
+				// prawe oko
+				p.noFill()
+				p.stroke(100, 150, 255)
+				p.strokeWeight(3)
+				p.ellipse(545, 990, 30, 30)
+
+				p.fill(0) // prawa źrenica
+				p.noStroke()
+				p.ellipse(545, 990, 20, 20)
+			}
+			p.pop()
 		}
 	}
 
